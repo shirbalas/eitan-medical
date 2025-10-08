@@ -3,7 +3,7 @@ import { PatientsController } from './patients.controller';
 import { PatientsService } from './patients.service';
 import { AppError } from '../common/errors/app-error.error';
 import { ErrCode } from '../common/errors/error-codes.error';
-import { PatientGender } from 'src/common/enums/patient-gender.enum';
+import { PatientGender } from '../common/enums/patient-gender.enum';
 
 describe('PatientsController', () => {
   let controller: PatientsController;

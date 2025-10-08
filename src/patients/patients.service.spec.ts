@@ -3,7 +3,7 @@ import { PatientsRepository } from './repositories/patients.repository';
 import { AppError } from '../common/errors/app-error.error';
 import { ErrCode } from '../common/errors/error-codes.error';
 import { createLoggerMock } from '../../test/logger.mock';
-import { PatientGender } from 'src/common/enums/patient-gender.enum';
+import { PatientGender } from '../common/enums/patient-gender.enum';
 
 describe('PatientsService (unit)', () => {
   let repo: PatientsRepository;
