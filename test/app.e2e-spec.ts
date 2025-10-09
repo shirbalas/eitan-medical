@@ -15,7 +15,7 @@ function expectProblem(res: request.Response, status: number, code?: string) {
   if (code) expect(res.body).toHaveProperty('code', code);
 }
 
-describe('Eitan Medical – E2E', () => {
+describe('Eitan Medical - E2E', () => {
   let app: INestApplication;
 
   beforeAll(async () => {

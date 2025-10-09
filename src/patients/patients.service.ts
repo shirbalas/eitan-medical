@@ -8,7 +8,7 @@ import { ErrCode } from '../common/errors/error-codes.error';
 @Injectable()
 export class PatientsService {
   constructor(
-    private readonly repo: PatientsRepository,
+    private readonly patientsRepo: PatientsRepository,
     private readonly logger: PinoLogger,
   ) {
     this.logger.setContext(PatientsService.name);
@@ -16,7 +16,7 @@ export class PatientsService {
 
   getAll(): Patient[] {
     try {
-      const list = this.repo.findAll();
+      const list = this.patientsRepo.findAll();
       this.logger.info({ count: list.length }, 'getAll patients');
       return list;
     } catch (e) {
@@ -27,7 +27,7 @@ export class PatientsService {
 
   getById(id: string): Patient {
     try {
-      const p = this.repo.findById(id);
+      const p = this.patientsRepo.findById(id);
       if (!p) {
         this.logger.warn({ patientId: id }, 'patient not found');
         throw AppError.notFound(ErrCode.PATIENT_NOT_FOUND, { id });
@@ -44,7 +44,7 @@ export class PatientsService {
   getRequestsCount(id: string) {
     try {
       this.getById(id);
-      const requestsCount = this.repo.getRequestCount(id);
+      const requestsCount = this.patientsRepo.getRequestCount(id);
       this.logger.info(
         { patientId: id, requestsCount },
         'requests counter read',
